@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head')%>
+
+    <body>
+        <%- include('../partials/header')%>
+
+            <h2>Registrarme</h2>
+            <section class="section">
+                <form id="signup" class="section form" action="signup" method="POST" enctype="multipart/form-data">
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input id = "name" type="text" name="nombre" placeholder="Nombre" value="<%=locals.oldData?oldData.nombre:null%>" />
+                        <span class = "error" id = "errorName"></span>
+                        <% if(locals.errors && errors.nombre) {%>
+                            <p class="validationProfile"><%= errors.nombre.msg %></p> 
+                            <% } %>  
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellidos:</label>
+                        <input id = "lastName" type="text" name="apellido" placeholder="Apellidos" value="<%=locals.oldData?oldData.apellido:null%>"/>
+                        <span class = "error" id = "errorLastName"></span>
+                        <% if(locals.errors && errors.apellido) {%>
+                            <p class="validationProfile"><%= errors.apellido.msg %></p> 
+                            <% } %>  
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email:</label>
+                        <input id = "email" type="email" name="email" placeholder="Email" value="<%=locals.oldData?oldData.email:null%>"/>
+                        <span class = "error" id = "errorEmail" ></span>
+                        <% if(locals.errors && errors.email) {%> 
+                            <p class="validationProfile"><%= errors.email.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="contrasena">Contraseña:</label>
+                        <input id= "password" type="password" name="contrasena" placeholder="Contraseña" value="<%=locals.oldData?oldData.contrasena:null%>"/>
+                        <span class = "error" id = "errorPassword" ></span>
+                        <% if(locals.errors && errors.contrasena) {%> 
+                            <p class="validationProfile"><%= errors.contrasena.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="confirmacion">Confirmación de contraseña:</label>
+                        <input id= "confirmPassword" type="password" name="confirmacion" placeholder="Confirmar" value="<%=locals.oldData?oldData.confirmacion:null%>" />
+                        <% if(locals.errors && errors.confirmacion) {%> 
+                            <p class="validationProfile"><%= errors.confirmacion.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="phone">Telefono:</label>
+                        <input id= "phone" type="number" name="phone" placeholder="telefono" value="<%=locals.oldData?oldData.phone:null%>" />
+                        <span class = "error" id = "errorPhone" ></span>
+                        <% if(locals.errors && errors.phone) {%> 
+                            <p class="validationProfile"><%= errors.phone.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="address">Direccion:</label>
+                        <input id= "address" type="text" name="address" placeholder="address" value="<%=locals.oldData?oldData.address:null%>" />
+                        <span class = "error" id = "errorAddress" ></span>
+                        <% if(locals.errors && errors.address) {%> 
+                            <p class="validationProfile"><%= errors.address.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="avatar">Su Avatar</label>
+                        <input type="file" name="avatar" accept=".gif,.jpg,.jpeg,.png" >
+                        <% if(locals.errors && errors.avatar) { %>
+                            <p class="validationProfile"><%= errors.avatar.msg %></p>  
+                        <% } %> 
+                        <img src="/Public/img/Avatar.svg" height="40px" alt="imagen avatar usuario" id="avatar"/>
+                    </div>
+                    <button type="submit" class="btn">Resgístrame</button>
+                    <a href="/users/login" class="cuenta">
+                        <button class="btn">Ya tengo una cuenta</button>
+                    </a>
+                </form>
+            </section>
+            
+            <%- include('../partials/footer')%>
+
+                <script src="/public/js/app.js">
+                </script>
+    </body>
+
+</html>
