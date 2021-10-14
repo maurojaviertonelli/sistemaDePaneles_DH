@@ -401,7 +401,7 @@ button {
     .form div {
         width: 40%;
     }
-    
+}
 @media(min-width:300px) {
 
 
@@ -416,4 +416,4 @@ color: #D00000;
 
 .icono-escudo {
     width: 350px;
-}
+}}
