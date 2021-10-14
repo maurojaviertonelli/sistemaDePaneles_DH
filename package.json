@@ -2,7 +2,7 @@
   "name": "sistemadepaneles_dh",
   "version": "1.0.0",
   "description": "Se trata de un sistema de paneles basado en un ABM (Alta – Baja – Modificación). Existen dos tipos de perfiles de usuarios (común y administrador). Cualquier usuario tiene datos personales, datos de inicio de sesión y una imagen.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
