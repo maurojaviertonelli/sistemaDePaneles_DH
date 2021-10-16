@@ -1,5 +1,5 @@
 module.exports=(sequelize, dataTypes) => {
-    let alias = "User";
+    let alias = "user";
     let cols = {
         idUser:{
             type:dataTypes.INTEGER,
@@ -44,11 +44,11 @@ module.exports=(sequelize, dataTypes) => {
         }
     }
     let config = {
-        tableName: "users",
+        tableName: "user",
         timestamps: false
     }
 
-    const User = sequelize.define(alias, cols, config);
+    /*const User = sequelize.define(alias, cols, config);
     User.associate=(models)=>{
         User.hasMany(models.Invoice,{
             as:"invoices",
@@ -58,7 +58,7 @@ module.exports=(sequelize, dataTypes) => {
             as:"cards",
             foreignKey:"users_idUser"
         })
-    }
+    }*/
    
    
     return User;
