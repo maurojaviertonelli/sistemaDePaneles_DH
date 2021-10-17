@@ -67,7 +67,7 @@ const usersController = {
         oldData: req.body
       });
       }
-    let userInDB=await db.User.findOne({ where: { user_email: req.body.email } }); //hacer cambios aca
+    let userInDB=await db.user.findOne({ where: { user_email: req.body.email } }); //hacer cambios aca
     if(userInDB){
       return res.render("users/signup",{
         pageTitle:"Registro",
@@ -82,7 +82,7 @@ const usersController = {
     
     let nombreImagen="/public/img/users_img/"+req.file.filename
     
-    db.User.create({
+    db.user.create({
       user_name:req.body.nombre,
       password:bcryptjs.hashSync(req.body.contrasena,10),
       user_email:req.body.email,
