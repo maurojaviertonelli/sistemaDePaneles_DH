@@ -7,7 +7,7 @@ const path = require("path");
 
 
 //const User=require("../models/userMethod");
-const db = require('../database/models');
+const db = require('../database/models/user');
 
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -24,6 +24,7 @@ const usersController = {
       pageTitle: "Registrarse",
     });
   },
+
   profile: (req, res) => {
     res.render("users/profile", {
       pageTitle: "Perfil",
@@ -58,7 +59,7 @@ const usersController = {
   },
   signupPost: async(req, res) => {
     const resultValidation = validationResult(req);
-    //console.log(resultValidation)
+    console.log("paso bien")
     if (resultValidation.errors.length > 0) {
       return res.render("users/signup", {
         errors: resultValidation.mapped(),
@@ -76,9 +77,11 @@ const usersController = {
           }
         },
         oldData:req.body
-      });
+        });
     }
+    
     let nombreImagen="/public/img/users_img/"+req.file.filename
+    
     db.User.create({
       user_name:req.body.nombre,
       password:bcryptjs.hashSync(req.body.contrasena,10),

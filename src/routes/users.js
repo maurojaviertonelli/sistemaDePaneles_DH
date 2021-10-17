@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path')
+const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware')  //llamo al middleware de login y registro
 const authMiddleware = require('../middlewares/authMiddleware')  //llamo al middleware de profile
 
@@ -74,14 +74,14 @@ body('email')
 body('contrasena').isLength({min:5,max:15}).withMessage('*Ingrese contraseña válida (entre 5 y 15 caracteres)'),
 ]
 
-router.get('/login',guestMiddleware,usersController.login);
-router.get('/signup',guestMiddleware,usersController.signup);
+router.get('/login',usersController.login);
+router.get('/signup',usersController.signup);
 router.get('/profile/',authMiddleware,usersController.profile);
 // rutas edicion perfil//
 router.get('/edit',usersController.edit);
 router.put('/edit',validationForm,usersController.editPut);
 //-------------------------//
-router.post('/signup',uploadFile.single('avatar'),validationFormSignUp,usersController.signupPost)
+router.post('/signup',validationFormSignUp,usersController.signupPost)
 router.post('/login',validationLogin,usersController.loginProcess);
 
 //--logout--//

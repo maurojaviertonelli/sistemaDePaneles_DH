@@ -7,7 +7,7 @@
 
             <h2>Registrarme</h2>
             <section class="section">
-                <form id="signup" class="section form" action="signup" method="POST" enctype="multipart/form-data">
+                <form id="signup" class="section form" action="/users/signup" method="POST" enctype="multipart/form-data">
                     <div class="campo">
                         <label for="nombre">Nombre:</label>
                         <input id = "name" type="text" name="nombre" placeholder="Nombre" value="<%=locals.oldData?oldData.nombre:null%>" />
@@ -17,7 +17,7 @@
                             <% } %>  
                     </div>
                     <div class="campo">
-                        <label for="apellidos">Apellidos:</label>
+                        <label for="apellido">Apellidos:</label>
                         <input id = "lastName" type="text" name="apellido" placeholder="Apellidos" value="<%=locals.oldData?oldData.apellido:null%>"/>
                         <span class = "error" id = "errorLastName"></span>
                         <% if(locals.errors && errors.apellido) {%>
@@ -71,10 +71,9 @@
                         <% } %> 
                         <img src="/Public/img/Avatar.svg" height="40px" alt="imagen avatar usuario" id="avatar"/>
                     </div>
-                    <button type="submit" class="btn">Resgístrame</button>
-                    <a href="/users/login" class="cuenta">
-                        <button class="btn">Ya tengo una cuenta</button>
-                    </a>
+
+                    <button type="submit" class="btn">Registrarme</button>
+                    
                 </form>
             </section>
             

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head')%>
+
+    <body>
+        <%- include('../partials/header')%>
+            <h2>Ingresar</h2>
+            <section class="section">
+                <form id="login" class="section form" action="login" method="POST">
+                    <div class="campo">
+                        <label for="email">Correo Electronico</label>
+                        <input id="email" type="text" name="email" placeholder="ingrese email" value="<%=locals.oldData?oldData.email:null%>"/>
+                        <span class = "error" id = "errorCorreo"></span>
+                        <% if(locals.errors && errors.email) {%> 
+                            <p class="validationProfile"><%= errors.email.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <div class="campo">
+                        <label for="contrasena">Contraseña</label>
+                        <input id="pass" type="password" name="contrasena" placeholder="Contraseña" value="<%=locals.oldData?oldData.contrasena:null%>"/>
+                        <span class = "error" id = "errorPass"></span>
+                        <% if(locals.errors && errors.contrasena) {%> 
+                            <p class="validationProfile"><%= errors.contrasena.msg %></p> 
+                        <% } %> 
+                    </div>
+                    <button type="submit" class="btn">Ingresar</button>
+                    <a href="/users/signup" class="cuenta">
+                        <button class="btn">¿Primera vez? Regístrate</button>
+                    </a>
+                    <a href="#" class="cuenta">
+                        <button class="btn">Recuperar contraseña</button>
+                    </a>
+                </form>
+            </section>
+            
+            <%- include('../partials/footer')%>
+                <script src="/public/js/app.js">
+                </script>
+    </body>
+
+</html>
